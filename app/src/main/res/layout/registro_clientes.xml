@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- AppBarLayout contiene el Toolbar y puede tener otros elementos -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#D33C3C"
+            app:title="Registro de Cliente"
+            app:titleTextColor="@android:color/white">
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenido principal de la actividad -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Contenido principal -->
+        <!-- Tu diseño de formulario aquí -->
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:background="#F4F4F4"
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:padding="30dp">
+
+            <!-- Este es de NOMBRE COMPLETO -->
+
+
+
+            <TextView
+                android:id="@+id/LblNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonAtras"
+                android:text="@string/nombreCliente"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/TxtNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblNombre"
+                android:background="@drawable/estilo_borde_redondo"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="text"
+                android:textColor="#2B2B2B"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <!-- Este es de EDAD -->
+            <TextView
+                android:id="@+id/LblEdad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtNombre"
+                android:text="@string/edadCliente"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/TxtEdad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblEdad"
+                android:background="@drawable/estilo_borde_redondo"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="text"
+                android:textColor="#2B2B2B"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Este es de SEXO -->
+            <TextView
+                android:id="@+id/LblSexo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtEdad"
+                android:text="@string/sexoCliente"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <Spinner
+                android:id="@+id/TxtSexo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblSexo"
+                android:inputType="text"
+                android:textColor="#2B2B2B"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <!-- Este es de CORREO -->
+            <TextView
+                android:id="@+id/LblCorreo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtSexo"
+                android:text="@string/correoCliente"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/TxtCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblCorreo"
+                android:background="@drawable/estilo_borde_redondo"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="text"
+                android:textColor="#2B2B2B"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Este es de CONTRASEÑA -->
+            <TextView
+                android:id="@+id/LblContraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtCorreo"
+                android:text="@string/contraseñaCliente"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/TxtContraseña"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblContraseña"
+                android:background="@drawable/estilo_borde_redondo"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="textPassword"
+                android:textColor="#2B2B2B"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Este es de CONFIRMAR CONTRASEÑA -->
+            <TextView
+                android:id="@+id/LblCContraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtContraseña"
+                android:text="@string/confirmaCliente"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/TxtCContraseña"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblCContraseña"
+                android:background="@drawable/estilo_borde_redondo"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="textPassword"
+                android:textColor="#2B2B2B"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+            <!-- Este es de DIRECCIÓN -->
+            <TextView
+                android:id="@+id/LblDireccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtCContraseña"
+                android:text="@string/direccionCliente"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/TxtDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblDireccion"
+                android:background="@drawable/estilo_borde_redondo"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="text"
+                android:textColor="#2B2B2B"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Este es de CIUDAD -->
+            <TextView
+                android:id="@+id/LblCiudad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtDireccion"
+                android:text="@string/ciudadCliente"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/TxtCiudad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblCiudad"
+                android:background="@drawable/estilo_borde_redondo"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="text"
+                android:textColor="#2B2B2B"
+
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Este es el boton de CANCELAR -->
+            <Button
+                android:id="@+id/BtnCancelar"
+                android:onClick="consultarClientes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtCiudad"
+                android:background="@color/black"
+                android:text="@string/mostrar_Cliente"/>
+
+
+            <!-- Este es el boton de REGISTRAR -->
+            <Button
+                android:id="@+id/BtnRegistar"
+                android:onClick="guardarCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtCiudad"
+                android:background="@color/black"
+                android:text="@string/botonCliente"
+                android:layout_centerVertical="false"
+                android:layout_centerHorizontal="true"/>
+
+            <Button
+                android:id="@+id/buttonAtras"
+                android:onClick="atrasCliente"
+                android:layout_width="66dp"
+                android:layout_height="23dp"
+                android:backgroundTint="#F9F9F9"
+                android:drawableLeft="@drawable/flecha"
+
+                android:text="Button" />
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

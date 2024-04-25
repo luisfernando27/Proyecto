@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Proyecto</string>
+    <string name="nombreCliente">Nombre completo</string>
+    <string name="edadCliente">Edad</string>
+    <string name="sexoCliente">Sexo</string>
+    <string name="correoCliente">Correo electronico</string>
+    <string name="contraseñaCliente">Contraseña</string>
+    <string name="confirmaCliente">Confirmar contraseña</string>
+    <string name="direccionCliente">Dirección</string>
+    <string name="ciudadCliente">Ciudad</string>
+    <string name="botonCliente">Registrar</string>
+    <string name="botonCCliente">Cancelar</string>
+    <string name="title_ConsultarCliente">Cancelar</string>
+    <string name="mostrar_Cliente">Mostrar</string>
+</resources>

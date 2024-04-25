@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- AppBarLayout contiene el Toolbar y puede tener otros elementos -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#F1234F"
+            app:title="Inicio de sesión"
+            app:titleTextColor="@android:color/white">
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenido principal de la actividad -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FAFAFA"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <RelativeLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#FAFAFA"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/LblTipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonAtras"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:paddingTop="10dp"
+                android:text="Tipo de usuario:"
+                android:textColor="#2B2B2B"
+                android:textSize="24dp"
+                android:textStyle="normal|bold" />
+            <Button
+                android:id="@+id/buttonEmpresa"
+                android:onClick="pantallaEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblTipo"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#F0234F"
+                android:text="Empresa"
+                android:textColor="#FDF3F5"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                app:strokeColor="#F0234F"
+                app:strokeWidth="3dp" />
+
+            <Button
+                android:id="@+id/buttonCliente"
+                android:onClick="pantallaClientes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonEmpresa"
+                android:layout_marginTop="0dp"
+                android:backgroundTint="#F1234F"
+                android:text="Cliente"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <Button
+                android:id="@+id/buttonAtras"
+                android:onClick="atrasPrincipal"
+                android:layout_width="66dp"
+                android:layout_height="23dp"
+                android:backgroundTint="#F9F9F9"
+                android:drawableLeft="@drawable/flecha"
+
+                android:text="Button" />
+
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- AppBarLayout contiene el Toolbar y puede tener otros elementos -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#D33C3C"
+            app:title="Datos Cliente"
+            app:titleTextColor="@android:color/white">
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenido principal de la actividad -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Contenido principal -->
+        <!-- Tu diseño de formulario aquí -->
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:background="#F4F4F4"
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:padding="30dp">
+
+            <!-- Este es de NOMBRE COMPLETO -->
+
+
+
+            <TextView
+                android:id="@+id/LblCorreo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonAtras"
+                android:text="@string/correoCliente"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/TxtCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblCorreo"
+                android:background="@drawable/estilo_borde_redondo"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="text"
+                android:textColor="#2B2B2B"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/BtnCancelar"
+                android:onClick="consultarCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtCorreo"
+                android:background="@color/black"
+                android:text="@string/mostrar_Cliente"/>
+
+            <TextView
+                android:id="@+id/TxtNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/BtnCancelar"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/TxtEdad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtNombre"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/TxtSexo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtEdad"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/TxtContraseña"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtSexo"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/TxtDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtContraseña"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/TxtCiudad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtDireccion"
+                android:text=""/>
+
+            <Button
+                android:id="@+id/buttonAtras"
+                android:onClick="atrasClientes1"
+                android:layout_width="66dp"
+                android:layout_height="23dp"
+                android:backgroundTint="#F9F9F9"
+                android:drawableLeft="@drawable/flecha"
+
+                android:text="Button" />
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

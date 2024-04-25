@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- AppBarLayout contiene el Toolbar y puede tener otros elementos -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#F1234F"
+            app:title="Inicio de sesión"
+            app:titleTextColor="@android:color/white">
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenido principal de la actividad -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FAFAFA"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Contenido principal -->
+        <!-- Tu diseño de formulario aquí -->
+        <RelativeLayout
+            android:id="@+id/LinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#FAFAFA"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+
+            <!-- Este es de CORREO -->
+            <ImageView
+                android:id="@+id/imageUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="110dp"
+                app:srcCompat="@drawable/icono_usuario" />
+
+            <EditText
+                android:id="@+id/txtCorreo"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_below="@+id/imageUsuario"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/estilo_borde_redondo"
+                android:ems="15"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColor="#2B2B2B"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/txtContraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_below="@+id/txtCorreo"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/estilo_borde_redondo"
+                android:ems="15"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:textColor="#2B2B2B"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+
+            <Button
+                android:id="@+id/buttonIniciarSes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtContraseña"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#F1234F"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:text="Iniciar sesión" />
+
+
+            <Button
+                android:id="@+id/buttonRegistrar"
+                android:onClick="pantallaPrincipal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonIniciarSes"
+                android:layout_marginTop="0dp"
+                android:backgroundTint="#F9F9F9"
+                android:textColor="#F0234F"
+                android:text="Registrate"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                app:strokeColor="#F0234F"
+                app:strokeWidth="3dp" />
+
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
