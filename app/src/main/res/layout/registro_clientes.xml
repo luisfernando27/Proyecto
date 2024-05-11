@@ -81,7 +81,7 @@
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/TxtEdad"
@@ -90,10 +90,11 @@
                 android:layout_below="@+id/LblEdad"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="text"
                 android:textColor="#2B2B2B"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:inputType="number"
+                android:digits="0123456789"/>
 
             <!-- Este es de SEXO -->
             <TextView

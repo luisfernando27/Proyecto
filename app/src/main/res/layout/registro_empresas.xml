@@ -113,7 +113,7 @@
                 android:layout_below="@+id/LblContraseña"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:textColor="#2B2B2B"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -137,7 +137,7 @@
                 android:layout_below="@+id/LblCContraseña"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:textColor="#2B2B2B"
                 android:textSize="24sp"
                 android:textStyle="bold" />

@@ -1,7 +1,11 @@
 package com.example.proyecto;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
+import android.content.res.ColorStateList;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.os.Bundle;
@@ -25,6 +29,94 @@ public class RegistroEmpresas extends AppCompatActivity {
         confContra = findViewById(R.id.TxtCContraseña);
         direccion = findViewById(R.id.TxtDireccion);
         ciudad = findViewById(R.id.TxtCiudad);
+
+        nombre.setFilters(new InputFilter[]{new InputFilter() {
+            public CharSequence filter(CharSequence source, int start, int end,
+                                       Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    if (!Character.isLetter(source.charAt(i)) && source.charAt(i) != ' ') {
+                        return "";
+                    }
+                }
+                return null;
+            }
+        }});
+
+        contra.setFilters(new InputFilter[]{new InputFilter.LengthFilter(16), new InputFilter() {
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                // Verificar la longitud de la contraseña
+                int length = dest.length() + source.length();
+                if (length > 16 || length < 8) {
+                    // Cambiar el color del fondo del campo solo si la validación no es válida
+                    contra.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                } else {
+                    // Restaurar el color del fondo del campo si la validación es válida
+                    contra.setBackgroundTintList(null);
+                }
+
+                // Permitir la entrada
+                return null;
+            }
+
+        }});
+
+        confContra.setFilters(new InputFilter[]{new InputFilter.LengthFilter(16), new InputFilter() {
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                // Verificar la longitud de la contraseña
+                int length = dest.length() + source.length();
+                if (length > 16 || length < 8) {
+                    // Cambiar el color del fondo del campo solo si la validación no es válida
+                    contra.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                } else {
+                    // Restaurar el color del fondo del campo si la validación es válida
+                    contra.setBackgroundTintList(null);
+                }
+
+                // Permitir la entrada
+                return null;
+            }
+
+        }});
+
+        direccion.setFilters(new InputFilter[]{new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                // Expresión regular para validar la dirección
+                String regex = "[a-zA-Z0-9# ]+"; // Acepta letras, números, espacios y #
+
+                // Verifica cada carácter de la entrada
+                for (int i = start; i < end; i++) {
+                    if (!String.valueOf(source.charAt(i)).matches(regex)) {
+                        // Si el carácter no coincide con la expresión regular, no lo permite
+                        Toast.makeText(RegistroEmpresas.this, "La dirección solo puede contener letras, números y #", Toast.LENGTH_SHORT).show();
+                        return "";
+                    }
+                }
+
+                // Permite la entrada
+                return null;
+            }
+        }});
+
+        ciudad.setFilters(new InputFilter[]{new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                // Expresión regular para validar la ciudad
+                String regex = "[a-zA-Z, ]+"; // Acepta letras, coma y espacios
+
+                // Verifica cada carácter de la entrada
+                for (int i = start; i < end; i++) {
+                    if (!String.valueOf(source.charAt(i)).matches(regex)) {
+                        // Si el carácter no coincide con la expresión regular, no lo permite
+                        Toast.makeText(RegistroEmpresas.this, "La ciudad solo puede contener letras y ,", Toast.LENGTH_SHORT).show();
+                        return "";
+                    }
+                }
+
+                // Permite la entrada
+                return null;
+            }
+        }});
     }
 
     public void guardarEmpresa(View v) {
