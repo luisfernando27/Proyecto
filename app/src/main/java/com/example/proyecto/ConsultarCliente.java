@@ -67,8 +67,6 @@ public class ConsultarCliente extends AppCompatActivity {
             txtDireccion.setText("");
             txtCiudad.setText("");
         }
-        // Cerrar la base de datos
-        bd.close();
     }
 
     public void atrasClientes1(View v) {

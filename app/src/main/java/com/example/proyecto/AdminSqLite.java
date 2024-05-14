@@ -15,6 +15,8 @@ public class AdminSqLite extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table clientes(nombre varchar, edad int, sexo varchar, correo text primary key, contra text, confContra text, direccion text, ciudad text)");
+
+        db.execSQL("create table empresas(nombre varchar, correo text primary key, contra text, confContra text, direccion text, ciudad text)");
     }
 
     @Override

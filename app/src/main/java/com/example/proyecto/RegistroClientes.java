@@ -204,7 +204,6 @@ public class RegistroClientes extends AppCompatActivity {
 
         bd.insert("clientes", null, registro);
 
-        bd.close();
         nombre.setText("");
         edad.setText("");
         correo.setText("");
