@@ -30,6 +30,9 @@ public class RegistroEmpresas extends AppCompatActivity {
         direccion = findViewById(R.id.TxtDireccion);
         ciudad = findViewById(R.id.TxtCiudad);
 
+        contra.setBackgroundTintList(null);
+        confContra.setBackgroundTintList(null);
+
         nombre.setFilters(new InputFilter[]{new InputFilter() {
             public CharSequence filter(CharSequence source, int start, int end,
                                        Spanned dest, int dstart, int dend) {
@@ -66,10 +69,10 @@ public class RegistroEmpresas extends AppCompatActivity {
                 int length = dest.length() + source.length();
                 if (length > 16 || length < 8) {
                     // Cambiar el color del fondo del campo solo si la validación no es válida
-                    contra.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                    confContra.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
                 } else {
                     // Restaurar el color del fondo del campo si la validación es válida
-                    contra.setBackgroundTintList(null);
+                    confContra.setBackgroundTintList(null);
                 }
 
                 // Permitir la entrada
@@ -82,7 +85,7 @@ public class RegistroEmpresas extends AppCompatActivity {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
                 // Expresión regular para validar la dirección
-                String regex = "[a-zA-Z0-9# ]+"; // Acepta letras, números, espacios y #
+                String regex = "[a-zA-Z0-9#áéíóúÁÉÍÓÚüÜ ]+"; // Acepta letras, números, espacios, # y letras con acentos
 
                 // Verifica cada carácter de la entrada
                 for (int i = start; i < end; i++) {
@@ -102,7 +105,7 @@ public class RegistroEmpresas extends AppCompatActivity {
             @Override
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
                 // Expresión regular para validar la ciudad
-                String regex = "[a-zA-Z, ]+"; // Acepta letras, coma y espacios
+                String regex = "[a-zA-Z0-9,áéíóúÁÉÍÓÚüÜ ]+"; // Acepta letras, números, espacios, # y letras con acentos
 
                 // Verifica cada carácter de la entrada
                 for (int i = start; i < end; i++) {
@@ -183,6 +186,8 @@ public class RegistroEmpresas extends AppCompatActivity {
 
         // Mostrar un mensaje de éxito
         Toast.makeText(RegistroEmpresas.this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
+        contra.setBackgroundTintList(null);
+        confContra.setBackgroundTintList(null);
     }
 
 
