@@ -37,6 +37,9 @@
         <activity
             android:name=".ConsultarEmpresa">
         </activity>
+        <activity
+            android:name=".MenuClientes">
+        </activity>
     </application>
 
 </manifest>

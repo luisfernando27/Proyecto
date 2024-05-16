@@ -45,6 +45,8 @@ public class Login extends AppCompatActivity {
                 String contra2 = fila.getString(0);
                 if (contra2.equals(contra1)) {
                     Toast.makeText(this, "Iniciado sesión cliente", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, MenuClientes.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(this, "Contraseña incorrecta cliente: ", Toast.LENGTH_SHORT).show();
                 }
