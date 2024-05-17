@@ -2,6 +2,7 @@ package com.example.proyecto;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.res.ColorStateList;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.text.InputFilter;
@@ -15,7 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegistroEmpresas extends AppCompatActivity {
-    private EditText nombre, correo, contra, confContra, direccion, ciudad;
+    private EditText idEmpresa, nombre, correo, contra, confContra, direccion, ciudad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class RegistroEmpresas extends AppCompatActivity {
         setContentView(R.layout.registro_empresas);
 
         // Inicializar los EditTexts
+        idEmpresa = findViewById(R.id.Txtid);
         nombre = findViewById(R.id.TxtNombre);
         correo = findViewById(R.id.TxtCorreo);
         contra = findViewById(R.id.TxtContraseña);
@@ -120,10 +122,38 @@ public class RegistroEmpresas extends AppCompatActivity {
                 return null;
             }
         }});
+
+        // Generar un ID de empresa único
+        String empresaId = generateUniqueEmpresaId();
+        idEmpresa.setText(empresaId);
+        idEmpresa.setFocusable(false);
+        idEmpresa.setClickable(false);
+    }
+
+    private String generateUniqueEmpresaId() {
+        AdminSqLite admin = new AdminSqLite(this, "localMarket", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        // Realizar la consulta en la base de datos
+        Cursor fila = bd.rawQuery("SELECT COUNT(*) FROM empresas", null);
+        String id;
+        if (fila.moveToFirst()) {
+            // Obtener el número de registros y añadir 1 para el nuevo ID
+            int count = fila.getInt(0) + 1;
+            // Formatear el ID con el prefijo "E" y 5 dígitos
+            id = String.format("E%05d", count);
+        } else {
+            // Si no hay registros, el ID inicial será "E00001"
+            id = "E00001";
+        }
+        fila.close();
+        bd.close();
+        return id;
     }
 
     public void guardarEmpresa(View v) {
         // Obtener los valores de los EditTexts
+        String idEmpresa1 = idEmpresa.getText().toString().trim();
         String nombre1 = nombre.getText().toString().trim();
         String correo1 = correo.getText().toString().trim();
         String contra1 = contra.getText().toString().trim();
@@ -178,6 +208,7 @@ public class RegistroEmpresas extends AppCompatActivity {
         SQLiteDatabase bd = admin.getWritableDatabase();
 
         ContentValues registro = new ContentValues();
+        registro.put("idE", idEmpresa1);
         registro.put("nombre", nombre1);
         registro.put("correo", correo1);
         registro.put("contra", contra1);
@@ -188,6 +219,7 @@ public class RegistroEmpresas extends AppCompatActivity {
         bd.insert("empresas", null, registro);
 
         bd.close();
+        idEmpresa.setText(generateUniqueEmpresaId());
         nombre.setText("");
         correo.setText("");
         contra.setText("");
@@ -199,14 +231,8 @@ public class RegistroEmpresas extends AppCompatActivity {
         Toast.makeText(RegistroEmpresas.this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
         contra.setBackgroundTintList(null);
         confContra.setBackgroundTintList(null);
-    }
-
-
-
-    public void consultarEmpresa(View v) {
-        Intent intent = new Intent(this, ConsultarEmpresa.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
-
     }
 
     public void atrasEmpresa(View v) {

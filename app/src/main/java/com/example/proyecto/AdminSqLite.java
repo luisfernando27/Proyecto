@@ -14,9 +14,75 @@ public class AdminSqLite extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table clientes(nombre varchar, edad int, sexo varchar, correo text primary key, contra text, confContra text, direccion text, ciudad text)");
+        // Tabla clientes
+        db.execSQL("CREATE TABLE clientes (" +
+                "idC TEXT PRIMARY KEY, " +
+                "nombre TEXT, " +
+                "edad INTEGER, " +
+                "sexo TEXT, " +
+                "correo TEXT UNIQUE, " + // correo debe ser único
+                "contra TEXT, " +
+                "confContra TEXT, " +
+                "direccion TEXT, " +
+                "ciudad TEXT)");
 
-        db.execSQL("create table empresas(nombre varchar, correo text primary key, contra text, confContra text, direccion text, ciudad text)");
+        // Tabla empresas
+        db.execSQL("CREATE TABLE empresas (" +
+                "idE TEXT PRIMARY KEY, " +
+                "nombre TEXT, " +
+                "correo TEXT UNIQUE, " + // correo debe ser único
+                "contra TEXT, " +
+                "confContra TEXT, " +
+                "direccion TEXT, " +
+                "ciudad TEXT)");
+
+        // Tabla ofertasEmpresas
+        db.execSQL("CREATE TABLE ofertasEmpresas (" +
+                "idF TEXT PRIMARY KEY, " +
+                "idE TEXT, " +
+                "nombre_oferta TEXT, " +
+                "total_oferta INTEGER, " +
+                "maximo_clientes INTEGER, " +
+                "fecha_inicio DATE, " +
+                "fecha_fin DATE, " +
+                "FOREIGN KEY(idE) REFERENCES empresas(idE))");
+
+        // Tabla ofertaCliente
+        db.execSQL("CREATE TABLE ofertaCliente (" +
+                "idC TEXT, " +
+                "idF TEXT, " +
+                "cantidad_maxima INTEGER, " +
+                "PRIMARY KEY(idC, idF), " +
+                "FOREIGN KEY(idC) REFERENCES clientes(idC), " +
+                "FOREIGN KEY(idF) REFERENCES ofertasEmpresas(idF))");
+
+        // Tabla productos
+        db.execSQL("CREATE TABLE productos (" +
+                "idP TEXT PRIMARY KEY, " +
+                "idE TEXT, " +
+                "nombre_producto TEXT, " +
+                "descripcion TEXT, " +
+                "cantidad INTEGER, " +
+                "precio FLOAT, " +
+                "FOREIGN KEY(idE) REFERENCES empresas(idE))");
+
+        // Tabla ventasProducto
+        db.execSQL("CREATE TABLE ventasProducto (" +
+                "idVP TEXT PRIMARY KEY, " +
+                "idC TEXT, " +
+                "idE TEXT, " +
+                "totalC FLOAT, " +
+                "FOREIGN KEY(idC) REFERENCES clientes(idC), " +
+                "FOREIGN KEY(idE) REFERENCES empresas(idE))");
+
+        // Tabla ventasOfertas
+        db.execSQL("CREATE TABLE ventasOferta (" +
+                "idVO TEXT PRIMARY KEY, " +
+                "idC TEXT, " +
+                "idE TEXT, " +
+                "totalO FLOAT, " +
+                "FOREIGN KEY(idC) REFERENCES clientes(idC), " +
+                "FOREIGN KEY(idE) REFERENCES empresas(idE))");
     }
 
     @Override

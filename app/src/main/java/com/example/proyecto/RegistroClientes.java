@@ -2,6 +2,7 @@ package com.example.proyecto;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.res.ColorStateList;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.text.Spanned;
@@ -14,10 +15,11 @@ import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.text.InputFilter;
+import java.util.Random;
 
 public class RegistroClientes extends AppCompatActivity {
 
-    private EditText nombre, edad, correo, contra, confContra, direccion, ciudad;
+    private EditText idCliente, nombre, edad, correo, contra, confContra, direccion, ciudad;
     private Spinner spinner;
 
     @Override
@@ -26,6 +28,7 @@ public class RegistroClientes extends AppCompatActivity {
         setContentView(R.layout.registro_clientes);
 
         // Inicializar los EditTexts
+        idCliente = findViewById(R.id.Txtid);
         nombre = findViewById(R.id.TxtNombre);
         edad = findViewById(R.id.TxtEdad);
         correo = findViewById(R.id.TxtCorreo);
@@ -36,14 +39,6 @@ public class RegistroClientes extends AppCompatActivity {
 
         contra.setBackgroundTintList(null);
         confContra.setBackgroundTintList(null);
-
-        String nombre1 = nombre.getText().toString().trim();
-        String edad1 = edad.getText().toString().trim();
-        String correo1 = correo.getText().toString().trim();
-        String contra1 = contra.getText().toString().trim();
-        String confContra1 = confContra.getText().toString().trim();
-        String direccion1 = direccion.getText().toString().trim();
-        String ciudad1 = ciudad.getText().toString().trim();
 
         nombre.setFilters(new InputFilter[]{new InputFilter() {
             public CharSequence filter(CharSequence source, int start, int end,
@@ -133,6 +128,12 @@ public class RegistroClientes extends AppCompatActivity {
             }
         }});
 
+        // Generar un ID de cliente único
+        String clienteId = generateUniqueClientId();
+        idCliente.setText(clienteId);
+        idCliente.setFocusable(false);
+        idCliente.setClickable(false);
+
         // Inicializar el Spinner
         spinner = findViewById(R.id.TxtSexo);
 
@@ -149,8 +150,30 @@ public class RegistroClientes extends AppCompatActivity {
         spinner.setAdapter(adapter);
     }
 
+    private String generateUniqueClientId() {
+        AdminSqLite admin = new AdminSqLite(this, "localMarket", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        // Realizar la consulta en la base de datos
+        Cursor fila = bd.rawQuery("SELECT COUNT(*) FROM clientes", null);
+        String id;
+        if (fila.moveToFirst()) {
+            // Obtener el número de registros y añadir 1 para el nuevo ID
+            int count = fila.getInt(0) + 1;
+            // Formatear el ID con el prefijo "C" y 5 dígitos
+            id = String.format("C%05d", count);
+        } else {
+            // Si no hay registros, el ID inicial será "C00001"
+            id = "C00001";
+        }
+        fila.close();
+        bd.close();
+        return id;
+    }
+
     public void guardarCliente(View v) {
         // Obtener los valores de los EditTexts
+        String idCliente1 = idCliente.getText().toString().trim();
         String nombre1 = nombre.getText().toString().trim();
         String edad1 = edad.getText().toString().trim();
         String correo1 = correo.getText().toString().trim();
@@ -215,6 +238,7 @@ public class RegistroClientes extends AppCompatActivity {
         SQLiteDatabase bd = admin.getWritableDatabase();
 
         ContentValues registro = new ContentValues();
+        registro.put("idC", idCliente1);
         registro.put("nombre", nombre1);
         registro.put("edad", edad1);
         registro.put("sexo", seleccion);
@@ -226,6 +250,8 @@ public class RegistroClientes extends AppCompatActivity {
 
         bd.insert("clientes", null, registro);
 
+        bd.close();
+        idCliente.setText(generateUniqueClientId());
         nombre.setText("");
         edad.setText("");
         correo.setText("");
@@ -235,17 +261,11 @@ public class RegistroClientes extends AppCompatActivity {
         ciudad.setText("");
 
         // Mostrar un mensaje de éxito
-        Toast.makeText(this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Datos guardados correctamente" + idCliente1, Toast.LENGTH_SHORT).show();
         contra.setBackgroundTintList(null);
         confContra.setBackgroundTintList(null);
-    }
-
-
-
-    public void consultarClientes(View v) {
-        Intent intent = new Intent(this, ConsultarCliente.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
-
     }
 
     public void atrasCliente(View v) {

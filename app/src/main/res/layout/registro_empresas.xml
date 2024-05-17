@@ -43,6 +43,34 @@
             android:layout_centerHorizontal="true"
             android:padding="30dp">
 
+
+            <!-- Este es de NOMBRE COMPLETO -->
+
+
+
+            <TextView
+                android:id="@+id/Lblid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonAtras"
+                android:text="@string/id"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/Txtid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Lblid"
+                android:background="@drawable/estilo_borde_redondo"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="text"
+                android:textColor="#2B2B2B"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
             <!-- Este es de NOMBRE COMPLETO -->
 
 
@@ -51,7 +79,7 @@
                 android:id="@+id/LblNombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/buttonAtras"
+                android:layout_below="@+id/Txtid"
                 android:text="@string/nombreCliente"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
@@ -190,16 +218,6 @@
 
                 android:textSize="24sp"
                 android:textStyle="bold" />
-
-            <!-- Este es el boton de CANCELAR -->
-            <Button
-                android:id="@+id/BtnCancelar"
-                android:onClick="consultarEmpresa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtCiudad"
-                android:backgroundTint="#F1234F"
-                android:text="@string/mostrar_Cliente"/>
 
 
             <!-- Este es el boton de REGISTRAR -->

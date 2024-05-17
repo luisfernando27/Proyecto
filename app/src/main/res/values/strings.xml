@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Proyecto</string>
+    <string name="id">ID</string>
     <string name="nombreCliente">Nombre completo</string>
     <string name="edadCliente">Edad</string>
     <string name="sexoCliente">Sexo</string>
