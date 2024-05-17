@@ -162,6 +162,17 @@ public class RegistroEmpresas extends AppCompatActivity {
             return;
         }
 
+        String email = correo.getText().toString().trim();
+
+        // Expresión regular para validar el formato completo del correo electrónico
+        String emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+
+        if (!email.matches(emailPattern)) {
+            // Si el correo no cumple con el patrón, muestra un mensaje de error
+            Toast.makeText(this, "Por favor, ingrese un correo electrónico válido.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         // Guardar los datos en la base de datos
         AdminSqLite admin = new AdminSqLite(this, "localMarket", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();

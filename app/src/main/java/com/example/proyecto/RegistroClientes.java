@@ -37,6 +37,14 @@ public class RegistroClientes extends AppCompatActivity {
         contra.setBackgroundTintList(null);
         confContra.setBackgroundTintList(null);
 
+        String nombre1 = nombre.getText().toString().trim();
+        String edad1 = edad.getText().toString().trim();
+        String correo1 = correo.getText().toString().trim();
+        String contra1 = contra.getText().toString().trim();
+        String confContra1 = confContra.getText().toString().trim();
+        String direccion1 = direccion.getText().toString().trim();
+        String ciudad1 = ciudad.getText().toString().trim();
+
         nombre.setFilters(new InputFilter[]{new InputFilter() {
             public CharSequence filter(CharSequence source, int start, int end,
                                        Spanned dest, int dstart, int dend) {
@@ -129,7 +137,7 @@ public class RegistroClientes extends AppCompatActivity {
         spinner = findViewById(R.id.TxtSexo);
 
         // Definir un array de opciones para el spinner
-        String[] opciones = {"Hombre", "Mujer"};
+        String[] opciones = {"Hombre", "Mujer", "Indistintivo"};
 
         // Crear un adaptador para el spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones);
@@ -183,6 +191,17 @@ public class RegistroClientes extends AppCompatActivity {
 
         if (!contra1.equals(confContra1)) {
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String email = correo.getText().toString().trim();
+
+        // Expresión regular para validar el formato completo del correo electrónico
+        String emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+
+        if (!email.matches(emailPattern)) {
+            // Si el correo no cumple con el patrón, muestra un mensaje de error
+            Toast.makeText(RegistroClientes.this, "Por favor, ingrese un correo electrónico válido.", Toast.LENGTH_SHORT).show();
             return;
         }
 
