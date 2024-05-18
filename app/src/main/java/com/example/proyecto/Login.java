@@ -55,6 +55,11 @@ public class Login extends AppCompatActivity {
                 String contra3 = fila1.getString(0);
                 if (contra3.equals(contra1)) {
                     Toast.makeText(this, "Iniciado sesión empresa", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, RegistroProductos.class);
+                    Bundle b = new Bundle();
+                    b.putString("CORREO", correo.getText().toString());
+                    intent.putExtras(b);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(this, "Contraseña incorrecta empresa: ", Toast.LENGTH_SHORT).show();
                 }

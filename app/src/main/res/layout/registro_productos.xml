@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#D33C3C"
-            app:title="Registro de Cliente"
+            app:title="Registro Productos"
             app:titleTextColor="@android:color/white">
 
         </com.google.android.material.appbar.MaterialToolbar>
@@ -44,21 +44,21 @@
             android:padding="30dp">
 
             <TextView
-                android:id="@+id/Lblid"
+                android:id="@+id/LblidProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/buttonAtras"
-                android:text="@string/id"
+                android:text="@string/idProducto"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/Txtid"
+                android:id="@+id/TxtidProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Lblid"
+                android:layout_below="@+id/LblidProducto"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:inputType="text"
@@ -71,24 +71,24 @@
 
 
             <TextView
-                android:id="@+id/LblNombre"
+                android:id="@+id/LblNombreProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Txtid"
-                android:text="@string/nombreCliente"
+                android:layout_below="@+id/TxtidProducto"
+                android:text="@string/nombreProducto"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/TxtNombre"
+                android:id="@+id/TxtNombreProducto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/LblNombre"
+                android:layout_below="@+id/LblNombreProducto"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="date"
+                android:inputType="text"
                 android:textColor="#2B2B2B"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -96,170 +96,73 @@
 
             <!-- Este es de EDAD -->
             <TextView
-                android:id="@+id/LblEdad"
+                android:id="@+id/Lbldescripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtNombre"
-                android:text="@string/edadCliente"
+                android:layout_below="@+id/TxtNombreProducto"
+                android:text="@string/descripcionProducto"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/TxtEdad"
+                android:id="@+id/Txtdescripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/LblEdad"
+                android:layout_below="@+id/Lbldescripcion"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textColor="#2B2B2B"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:inputType="number"
-                android:digits="0123456789"/>
-
-            <!-- Este es de SEXO -->
-            <TextView
-                android:id="@+id/LblSexo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtEdad"
-                android:text="@string/sexoCliente"
-                android:textColor="#2B2B2B"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
-
-            <Spinner
-                android:id="@+id/TxtSexo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LblSexo"
-                android:inputType="text"
-                android:textColor="#2B2B2B"
-                android:textSize="20sp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
+                android:inputType="text"/>
 
             <!-- Este es de CORREO -->
             <TextView
-                android:id="@+id/LblCorreo"
+                android:id="@+id/Lblcantidad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtSexo"
-                android:text="@string/correoCliente"
+                android:layout_below="@+id/Txtdescripcion"
+                android:text="@string/cantidadProducto"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/TxtCorreo"
+                android:id="@+id/Txtcantidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/LblCorreo"
+                android:layout_below="@+id/Lblcantidad"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="text"
+                android:inputType="number"
                 android:textColor="#2B2B2B"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <!-- Este es de CONTRASEÑA -->
             <TextView
-                android:id="@+id/LblContraseña"
+                android:id="@+id/Lblprecio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtCorreo"
-                android:text="@string/contraseñaCliente"
+                android:layout_below="@+id/Txtcantidad"
+                android:text="@string/precioProducto"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/TxtContraseña"
+                android:id="@+id/Txtprecio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/LblContraseña"
+                android:layout_below="@+id/Lblprecio"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="textPassword"
+                android:inputType="number"
                 android:textColor="#2B2B2B"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <!-- Este es de CONFIRMAR CONTRASEÑA -->
-            <TextView
-                android:id="@+id/LblCContraseña"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtContraseña"
-                android:text="@string/confirmaCliente"
-                android:textColor="#2B2B2B"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/TxtCContraseña"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LblCContraseña"
-                android:background="@drawable/estilo_borde_redondo"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="textPassword"
-                android:textColor="#2B2B2B"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-            <!-- Este es de DIRECCIÓN -->
-            <TextView
-                android:id="@+id/LblDireccion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtCContraseña"
-                android:text="@string/direccionCliente"
-                android:textColor="#2B2B2B"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/TxtDireccion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LblDireccion"
-                android:background="@drawable/estilo_borde_redondo"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="text"
-                android:textColor="#2B2B2B"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <!-- Este es de CIUDAD -->
-            <TextView
-                android:id="@+id/LblCiudad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtDireccion"
-                android:text="@string/ciudadCliente"
-                android:textColor="#2B2B2B"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/TxtCiudad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LblCiudad"
-                android:background="@drawable/estilo_borde_redondo"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="text"
-                android:textColor="#2B2B2B"
-
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -267,18 +170,18 @@
             <!-- Este es el boton de REGISTRAR -->
             <Button
                 android:id="@+id/BtnRegistar"
-                android:onClick="guardarCliente"
+                android:onClick="guardarProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtCiudad"
+                android:layout_below="@+id/Txtprecio"
                 android:backgroundTint="#F1234F"
-                android:text="@string/botonCliente"
+                android:text="@string/botonProducto"
                 android:layout_centerVertical="false"
                 android:layout_centerHorizontal="true"/>
 
             <Button
                 android:id="@+id/buttonAtras"
-                android:onClick="atrasCliente"
+                android:onClick="atrasRegistroProductos"
                 android:layout_width="66dp"
                 android:layout_height="23dp"
                 android:backgroundTint="#F9F9F9"

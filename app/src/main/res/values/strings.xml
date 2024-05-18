@@ -14,4 +14,16 @@
     <string name="botonCCliente">Cancelar</string>
     <string name="title_ConsultarCliente">Cancelar</string>
     <string name="mostrar_Cliente">Mostrar</string>
+    <string name="idProducto">ID producto</string>
+    <string name="nombreProducto">Nombre producto</string>
+    <string name="descripcionProducto">Descripción</string>
+    <string name="cantidadProducto">Cantidad</string>
+    <string name="precioProducto">Precio</string>
+    <string name="botonProducto">Agregar</string>
+    <string name="idOferta">ID oferta</string>
+    <string name="nombreOferta">Nombre oferta</string>
+    <string name="totalOfertas">Total ofertas</string>
+    <string name="maximoClientes">Maximo clientes</string>
+    <string name="fechaInicio">Fecha de inicio</string>
+    <string name="fechaFin">Fecha de fin</string>
 </resources>

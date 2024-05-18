@@ -40,6 +40,12 @@
         <activity
             android:name=".MenuClientes">
         </activity>
+        <activity
+            android:name=".RegistroOfertas">
+        </activity>
+        <activity
+            android:name=".RegistroProductos">
+        </activity>
     </application>
 
 </manifest>

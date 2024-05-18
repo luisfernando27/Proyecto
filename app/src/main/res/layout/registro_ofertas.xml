@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#D33C3C"
-            app:title="Registro de Cliente"
+            app:title="Registro Ofertas"
             app:titleTextColor="@android:color/white">
 
         </com.google.android.material.appbar.MaterialToolbar>
@@ -44,21 +44,21 @@
             android:padding="30dp">
 
             <TextView
-                android:id="@+id/Lblid"
+                android:id="@+id/LblidOferta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/buttonAtras"
-                android:text="@string/id"
+                android:text="@string/idOferta"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/Txtid"
+                android:id="@+id/TxtidOferta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Lblid"
+                android:layout_below="@+id/LblidOferta"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:inputType="text"
@@ -71,24 +71,24 @@
 
 
             <TextView
-                android:id="@+id/LblNombre"
+                android:id="@+id/LblNombreOferta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Txtid"
-                android:text="@string/nombreCliente"
+                android:layout_below="@+id/TxtidOferta"
+                android:text="@string/nombreOferta"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/TxtNombre"
+                android:id="@+id/TxtNombreOferta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/LblNombre"
+                android:layout_below="@+id/LblNombreOferta"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="date"
+                android:inputType="text"
                 android:textColor="#2B2B2B"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -96,21 +96,21 @@
 
             <!-- Este es de EDAD -->
             <TextView
-                android:id="@+id/LblEdad"
+                android:id="@+id/LbltotalOfertas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtNombre"
-                android:text="@string/edadCliente"
+                android:layout_below="@+id/TxtNombreOferta"
+                android:text="@string/totalOfertas"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/TxtEdad"
+                android:id="@+id/TxttotalOfertas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/LblEdad"
+                android:layout_below="@+id/LbltotalOfertas"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textColor="#2B2B2B"
@@ -119,147 +119,76 @@
                 android:inputType="number"
                 android:digits="0123456789"/>
 
-            <!-- Este es de SEXO -->
-            <TextView
-                android:id="@+id/LblSexo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtEdad"
-                android:text="@string/sexoCliente"
-                android:textColor="#2B2B2B"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
-
-            <Spinner
-                android:id="@+id/TxtSexo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LblSexo"
-                android:inputType="text"
-                android:textColor="#2B2B2B"
-                android:textSize="20sp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
-
             <!-- Este es de CORREO -->
             <TextView
-                android:id="@+id/LblCorreo"
+                android:id="@+id/LblmaximoClientes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtSexo"
-                android:text="@string/correoCliente"
+                android:layout_below="@+id/TxttotalOfertas"
+                android:text="@string/maximoClientes"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/TxtCorreo"
+                android:id="@+id/TxtmaximoClientes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/LblCorreo"
+                android:layout_below="@+id/LblmaximoClientes"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="text"
+                android:inputType="number"
                 android:textColor="#2B2B2B"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <!-- Este es de CONTRASEÑA -->
             <TextView
-                android:id="@+id/LblContraseña"
+                android:id="@+id/LblfechaInicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtCorreo"
-                android:text="@string/contraseñaCliente"
+                android:layout_below="@+id/TxtmaximoClientes"
+                android:text="@string/fechaInicio"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/TxtContraseña"
+                android:id="@+id/TxtfechaInicio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/LblContraseña"
+                android:layout_below="@+id/LblfechaInicio"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="textPassword"
+                android:inputType="date"
                 android:textColor="#2B2B2B"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <!-- Este es de CONFIRMAR CONTRASEÑA -->
+            <!-- Este es de CONTRASEÑA -->
             <TextView
-                android:id="@+id/LblCContraseña"
+                android:id="@+id/LblfechaFin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtContraseña"
-                android:text="@string/confirmaCliente"
+                android:layout_below="@+id/TxtfechaInicio"
+                android:text="@string/fechaFin"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:inputType="date"/>
 
             <EditText
-                android:id="@+id/TxtCContraseña"
+                android:id="@+id/TxtfechaFin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/LblCContraseña"
+                android:layout_below="@+id/LblfechaFin"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="textPassword"
+                android:inputType="date"
                 android:textColor="#2B2B2B"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-
-            <!-- Este es de DIRECCIÓN -->
-            <TextView
-                android:id="@+id/LblDireccion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtCContraseña"
-                android:text="@string/direccionCliente"
-                android:textColor="#2B2B2B"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/TxtDireccion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LblDireccion"
-                android:background="@drawable/estilo_borde_redondo"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="text"
-                android:textColor="#2B2B2B"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <!-- Este es de CIUDAD -->
-            <TextView
-                android:id="@+id/LblCiudad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtDireccion"
-                android:text="@string/ciudadCliente"
-                android:textColor="#2B2B2B"
-                android:textSize="30sp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/TxtCiudad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/LblCiudad"
-                android:background="@drawable/estilo_borde_redondo"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="text"
-                android:textColor="#2B2B2B"
-
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -267,18 +196,18 @@
             <!-- Este es el boton de REGISTRAR -->
             <Button
                 android:id="@+id/BtnRegistar"
-                android:onClick="guardarCliente"
+                android:onClick="guardarOferta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TxtCiudad"
+                android:layout_below="@+id/TxtfechaFin"
                 android:backgroundTint="#F1234F"
-                android:text="@string/botonCliente"
+                android:text="@string/botonProducto"
                 android:layout_centerVertical="false"
                 android:layout_centerHorizontal="true"/>
 
             <Button
                 android:id="@+id/buttonAtras"
-                android:onClick="atrasCliente"
+                android:onClick="atrasRegistroOfertas"
                 android:layout_width="66dp"
                 android:layout_height="23dp"
                 android:backgroundTint="#F9F9F9"

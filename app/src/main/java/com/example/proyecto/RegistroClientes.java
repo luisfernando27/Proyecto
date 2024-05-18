@@ -261,7 +261,7 @@ public class RegistroClientes extends AppCompatActivity {
         ciudad.setText("");
 
         // Mostrar un mensaje de éxito
-        Toast.makeText(this, "Datos guardados correctamente" + idCliente1, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Datos guardados correctamente", Toast.LENGTH_SHORT).show();
         contra.setBackgroundTintList(null);
         confContra.setBackgroundTintList(null);
         Intent intent = new Intent(this, Login.class);
