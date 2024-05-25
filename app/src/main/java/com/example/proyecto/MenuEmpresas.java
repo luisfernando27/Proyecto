@@ -15,6 +15,7 @@ public class MenuEmpresas extends AppCompatActivity implements NavigationView.On
     //Aqui va el código del menu para cada uno de los apartados
 
     private DrawerLayout drawerLayout;
+    private String userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +31,12 @@ public class MenuEmpresas extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        // Recuperar el correo electrónico del intent
+        userEmail = getIntent().getExtras().getString("CORREO");
+
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RegistroofertaFragment()).commit();
+            RegistroofertaFragment registroofertaFragment = RegistroofertaFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, registroofertaFragment).commit();
             navigationView.setCheckedItem(R.id.nav_ofertas);
         }
     }
@@ -39,10 +44,12 @@ public class MenuEmpresas extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.nav_ofertas){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RegistroofertaFragment()).commit();
+        if (itemId == R.id.nav_ofertas) {
+            RegistroofertaFragment registroofertaFragment = RegistroofertaFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, registroofertaFragment).commit();
         } else if (itemId == R.id.nav_productos) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RegistroproductoFragment()).commit();
+            RegistroproductoFragment registroproductoFragment = RegistroproductoFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, registroproductoFragment).commit();
         } else if (itemId == R.id.nav_ofertas_registradas) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VerofertaFragment()).commit();
         } else if (itemId == R.id.nav_productos_registradas) {

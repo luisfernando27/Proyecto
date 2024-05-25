@@ -47,7 +47,6 @@
                 android:id="@+id/LblidOferta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/buttonAtras"
                 android:text="@string/idOferta"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
@@ -205,15 +204,6 @@
                 android:layout_centerVertical="false"
                 android:layout_centerHorizontal="true"/>
 
-            <Button
-                android:id="@+id/buttonAtras"
-                android:onClick="atrasRegistroOfertas"
-                android:layout_width="66dp"
-                android:layout_height="23dp"
-                android:backgroundTint="#F9F9F9"
-                android:drawableLeft="@drawable/flecha"
-
-                android:text="Button" />
 
         </RelativeLayout>
 

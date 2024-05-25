@@ -179,15 +179,6 @@
                 android:layout_centerVertical="false"
                 android:layout_centerHorizontal="true"/>
 
-            <Button
-                android:id="@+id/buttonAtras"
-                android:onClick="atrasRegistroProductos"
-                android:layout_width="66dp"
-                android:layout_height="23dp"
-                android:backgroundTint="#F9F9F9"
-                android:drawableLeft="@drawable/flecha"
-
-                android:text="Button" />
 
         </RelativeLayout>
 

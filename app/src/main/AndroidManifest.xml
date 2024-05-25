@@ -41,6 +41,9 @@
             android:name=".MenuClientes">
         </activity>
         <activity
+            android:name=".MenuEmpresas">
+        </activity>
+        <activity
             android:name=".RegistroOfertas">
         </activity>
         <activity
