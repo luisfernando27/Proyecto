@@ -1,15 +1,15 @@
 package com.example.proyecto;
 
 public class ListaElementosClientes {
-    public String nombreOferta;
-    public String nombreEmpresa;
-    public String descripcion;
-    public String precio;
+    private String nombreOferta;
+    private String empresa;
+    private String cantidadOfertaPorUsuario;
+    private String precio;
 
-    public ListaElementosClientes(String nombreOferta, String nombreEmpresa, String descripcion, String precio) {
+    public ListaElementosClientes(String nombreOferta, String empresa, String cantidadOfertaPorUsuario, String precio) {
         this.nombreOferta = nombreOferta;
-        this.nombreEmpresa = nombreEmpresa;
-        this.descripcion = descripcion;
+        this.empresa = empresa;
+        this.cantidadOfertaPorUsuario = cantidadOfertaPorUsuario;
         this.precio = precio;
     }
 
@@ -17,31 +17,15 @@ public class ListaElementosClientes {
         return nombreOferta;
     }
 
-    public void setNombreOferta(String nombreOferta) {
-        this.nombreOferta = nombreOferta;
+    public String getEmpresa() {
+        return empresa;
     }
 
-    public String getNombreEmpresa() {
-        return nombreEmpresa;
-    }
-
-    public void setNombreEmpresa(String nombreEmpresa) {
-        this.nombreEmpresa = nombreEmpresa;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public String getCantidadOfertaPorUsuario() {
+        return cantidadOfertaPorUsuario;
     }
 
     public String getPrecio() {
         return precio;
-    }
-
-    public void setPrecio(String precio) {
-        this.precio = precio;
     }
 }

@@ -45,36 +45,32 @@
                 android:layout_toRightOf="@+id/imagenOfertaUs">
                 <TextView
                     android:id="@+id/nombreOferta"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:text="Nombre Oferta"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:text="Nombre de la oferta"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/nombreEmpresa"
-                    android:layout_width="match_parent"
+                    android:id="@+id/empresa"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:text="Nombre Empresa"
-                    android:textSize="14sp"/>
+                    android:text="Empresa"
+                    android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/descripcionOferta"
-                    android:layout_width="match_parent"
+                    android:id="@+id/cantidadOfertaPorUsuario"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:text="Descripcion"
-                    android:textSize="14sp"/>
+                    android:text="Cantidad de oferta por usuario"
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/lblPrecio"
-                    android:layout_width="match_parent"
+                    android:id="@+id/precio"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
                     android:text="Precio"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
                 <EditText
                     android:id="@+id/txtPrecio"
                     android:layout_width="wrap_content"

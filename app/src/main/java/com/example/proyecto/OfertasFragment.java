@@ -1,5 +1,7 @@
 package com.example.proyecto;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,7 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OfertasFragment extends Fragment {
-    List<ListaElementosClientes> elements;
+    private List<ListaElementosClientes> elements;
+    private ListAdapter listAdapter;
 
     public OfertasFragment() {
         // Constructor vacío requerido
@@ -32,20 +35,41 @@ public class OfertasFragment extends Fragment {
         // Inicializar y configurar el RecyclerView
         init(view);
 
+        // Cargar datos desde la base de datos
+        loadDataFromDatabase();
+
         return view;
     }
 
     private void init(View view) {
         elements = new ArrayList<>();
+        listAdapter = new ListAdapter(elements, getContext());
 
-        elements.add(new ListaElementosClientes("Oferta 2 Megas", "Grupo modelo", "2 Megas por $50", "$50"));
-        elements.add(new ListaElementosClientes("Oferta 2 Power Azul", "Coca-Cola", "2 Power Azul por $50", "$50"));
-
-        ListAdapter listAdapter = new ListAdapter(elements, getContext());
         RecyclerView recyclerView = view.findViewById(R.id.recyclerListaOfertasUs);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(listAdapter);
     }
 
+    private void loadDataFromDatabase() {
+        AdminSqLite admin = new AdminSqLite(getContext(), "localMarket", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        Cursor cursor = bd.rawQuery("SELECT ofertasEmpresas.nombre_oferta, empresas.nombre, ofertasEmpresas.maximo_clientes, ofertasEmpresas.precio_oferta FROM ofertasEmpresas, empresas WHERE ofertasEmpresas.idE=empresas.idE", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String nombreOferta = cursor.getString(0);
+                String empresa = cursor.getString(1);
+                String cantidadOfertaPorUsuario = cursor.getString(2);
+                String precio = cursor.getString(3);
+                elements.add(new ListaElementosClientes(nombreOferta, empresa, cantidadOfertaPorUsuario, precio));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        bd.close();
+
+        listAdapter.setItems(elements);
+    }
 }
