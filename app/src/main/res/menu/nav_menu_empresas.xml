@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_ofertas"
+            android:icon="@drawable/nav_ofertas"
+            android:title="Registrar oferta"/>
+        <item
+            android:id="@+id/nav_productos"
+            android:icon="@drawable/nav_productos"
+            android:title="Registrar productos"/>
+
+
+        <item
+            android:id="@+id/nav_ofertas_registradas"
+            android:icon="@drawable/nav_ver_ofertas"
+            android:title="Ofertas registradas"/>
+
+        <item
+            android:id="@+id/nav_productos_registradas"
+            android:icon="@drawable/nav_ver_productos"
+            android:title="Productos registrados"/>
+
+        <item
+            android:id="@+id/nav_venta_ofertas"
+            android:icon="@drawable/nav_venta_ofertas"
+            android:title="Ventas de ofertas"/>
+
+        <item
+            android:id="@+id/nav_venta_productos"
+            android:icon="@drawable/nav_venta_productos"
+            android:title="Ventas de productos"/>
+
+        <item
+            android:id="@+id/nav_info_us"
+            android:icon="@drawable/nav_info_us"
+            android:title="Tú información"/>
+    </group>
+    <item
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/nav_logout"
+                android:title="Cerrar sessíon"/>
+        </menu>
+    </item>
+</menu>
