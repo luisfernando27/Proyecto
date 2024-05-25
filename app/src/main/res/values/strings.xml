@@ -22,6 +22,7 @@
     <string name="botonProducto">Agregar</string>
     <string name="idOferta">ID oferta</string>
     <string name="nombreOferta">Nombre oferta</string>
+    <string name="precioOferta">Precio oferta</string>
     <string name="totalOfertas">Total ofertas</string>
     <string name="maximoClientes">Maximo clientes</string>
     <string name="fechaInicio">Fecha de inicio</string>

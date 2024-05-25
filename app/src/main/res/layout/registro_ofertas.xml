@@ -95,10 +95,35 @@
 
             <!-- Este es de EDAD -->
             <TextView
-                android:id="@+id/LbltotalOfertas"
+                android:id="@+id/LblprecioOfertas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/TxtNombreOferta"
+                android:text="@string/precioOferta"
+                android:textColor="#2B2B2B"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/TxtPrecioOferta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/LblprecioOfertas"
+                android:background="@drawable/estilo_borde_redondo"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="text"
+                android:textColor="#2B2B2B"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <!-- Este es de EDAD -->
+            <TextView
+                android:id="@+id/LbltotalOfertas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TxtPrecioOferta"
                 android:text="@string/totalOfertas"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"

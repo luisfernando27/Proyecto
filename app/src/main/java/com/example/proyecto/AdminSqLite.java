@@ -41,6 +41,7 @@ public class AdminSqLite extends SQLiteOpenHelper{
                 "idF TEXT PRIMARY KEY, " +
                 "idE TEXT, " +
                 "nombre_oferta TEXT, " +
+                "precio_oferta FLOAT, " +
                 "total_oferta INTEGER, " +
                 "maximo_clientes INTEGER, " +
                 "fecha_inicio DATE, " +

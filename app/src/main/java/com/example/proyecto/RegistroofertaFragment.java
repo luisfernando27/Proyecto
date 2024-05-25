@@ -28,7 +28,7 @@ public class RegistroofertaFragment extends Fragment {
     private String mCorreo;
     private String idEmpresa;
 
-    private EditText txtIdOferta, txtNombreOferta, txtTotalOfertas, txtMaximoClientes, txtFechaInicio, txtFechaFin;
+    private EditText txtIdOferta, txtNombreOferta, txtPrecioOferta, txtTotalOfertas, txtMaximoClientes, txtFechaInicio, txtFechaFin;
     private Button btnRegistrar;
 
     public RegistroofertaFragment() {
@@ -59,6 +59,7 @@ public class RegistroofertaFragment extends Fragment {
 
         txtIdOferta = view.findViewById(R.id.TxtidOferta);
         txtNombreOferta = view.findViewById(R.id.TxtNombreOferta);
+        txtPrecioOferta = view.findViewById(R.id.TxtPrecioOferta);
         txtTotalOfertas = view.findViewById(R.id.TxttotalOfertas);
         txtMaximoClientes = view.findViewById(R.id.TxtmaximoClientes);
         txtFechaInicio = view.findViewById(R.id.TxtfechaInicio);
@@ -122,6 +123,7 @@ public class RegistroofertaFragment extends Fragment {
     private void guardarOferta() {
         String idOferta1 = txtIdOferta.getText().toString().trim();
         String nombreOferta1 = txtNombreOferta.getText().toString().trim();
+        String precioOferta1 = txtPrecioOferta.getText().toString().trim();
         String totalOfertas1 = txtTotalOfertas.getText().toString().trim();
         String maximoClientes1 = txtMaximoClientes.getText().toString().trim();
         String fechaInicio1 = txtFechaInicio.getText().toString().trim();
@@ -129,6 +131,10 @@ public class RegistroofertaFragment extends Fragment {
 
         if (nombreOferta1.isEmpty()) {
             Toast.makeText(getContext(), "Por favor, ingrese el nombre de la oferta", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (precioOferta1.isEmpty()) {
+            Toast.makeText(getContext(), "Por favor, ingrese el precio de la oferta", Toast.LENGTH_SHORT).show();
             return;
         }
         if (totalOfertas1.isEmpty()) {
@@ -154,6 +160,7 @@ public class RegistroofertaFragment extends Fragment {
         registro.put("idF", idOferta1);
         registro.put("idE", idEmpresa);
         registro.put("nombre_oferta", nombreOferta1);
+        registro.put("precio_oferta", precioOferta1);
         registro.put("total_oferta", totalOfertas1);
         registro.put("maximo_clientes", maximoClientes1);
         registro.put("fecha_inicio", fechaInicio1);
@@ -163,6 +170,7 @@ public class RegistroofertaFragment extends Fragment {
 
         txtIdOferta.setText(generateUniqueOfertaId());
         txtNombreOferta.setText("");
+        txtPrecioOferta.setText("");
         txtTotalOfertas.setText("");
         txtMaximoClientes.setText("");
         txtFechaInicio.setText("");

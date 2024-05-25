@@ -88,7 +88,7 @@
                 android:layout_below="@+id/LblNombre"
                 android:background="@drawable/estilo_borde_redondo"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:inputType="date"
+                android:inputType="text"
                 android:textColor="#2B2B2B"
                 android:textSize="24sp"
                 android:textStyle="bold" />
