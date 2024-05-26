@@ -7,12 +7,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 public class MenuClientes extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
+
+    private String userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +31,11 @@ public class MenuClientes extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        userEmail = getIntent().getExtras().getString("CORREO");
+
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new OfertasFragment()).commit();
+            OfertasFragment ofertasFragment = OfertasFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, ofertasFragment).commit();
             navigationView.setCheckedItem(R.id.nav_ofertas);
         }
     }
@@ -37,7 +43,8 @@ public class MenuClientes extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.nav_ofertas){
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new OfertasFragment()).commit();
+            OfertasFragment ofertasFragment = OfertasFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, ofertasFragment).commit();
         } else if (itemId == R.id.nav_productos) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProductosFragment()).commit();
         } else if (itemId == R.id.nav_carrito) {
@@ -45,10 +52,20 @@ public class MenuClientes extends AppCompatActivity implements NavigationView.On
         } else if (itemId == R.id.nav_info_us) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoclientFragment()).commit();
         } else if (itemId == R.id.nav_logout) {
-            Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
+            logout();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void logout() {
+        // Mostrar mensaje de cierre de sesión
+        Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+
+        // Redirigir a la pantalla de inicio de sesión
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+        finish(); // Finalizar la actividad actual
     }
     @Override
     public void onBackPressed() {
