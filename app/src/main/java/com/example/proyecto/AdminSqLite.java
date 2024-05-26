@@ -79,9 +79,11 @@ public class AdminSqLite extends SQLiteOpenHelper{
         // Tabla ventasOfertas
         db.execSQL("CREATE TABLE ventasOferta (" +
                 "idVO TEXT PRIMARY KEY, " +
+                "idF TEXT, " +
                 "idC TEXT, " +
                 "idE TEXT, " +
                 "totalO FLOAT, " +
+                "FOREIGN KEY(idF) REFERENCES ofertasEmpresas(idF), " +
                 "FOREIGN KEY(idC) REFERENCES clientes(idC), " +
                 "FOREIGN KEY(idE) REFERENCES empresas(idE))");
     }

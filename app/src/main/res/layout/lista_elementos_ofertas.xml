@@ -46,7 +46,8 @@
                 <TextView
                     android:id="@+id/idOferta"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:id="@+id/nombreOferta"
@@ -76,6 +77,22 @@
                     android:layout_height="wrap_content"
                     android:text="Precio"
                     android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/fechaI"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha de inicio"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/fechaF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha de Termino"
+                    android:textSize="14sp" />
+
+
                 <EditText
                     android:id="@+id/txtPrecio"
                     android:layout_width="wrap_content"
@@ -83,6 +100,7 @@
                     android:layout_below="@+id/txtCorreo"
                     android:background="@drawable/estilo_borde_redondo"
                     android:hint="Cantidad"
+                    android:inputType="number"
                     android:textColor="#2B2B2B"
                     android:textSize="14sp"/>
 

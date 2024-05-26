@@ -75,7 +75,7 @@ public class OfertasFragment extends Fragment {
         AdminSqLite admin = new AdminSqLite(getContext(), "localMarket", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
 
-        Cursor cursor = bd.rawQuery("SELECT ofertasEmpresas.idF, ofertasEmpresas.nombre_oferta, empresas.nombre, ofertasEmpresas.maximo_clientes, ofertasEmpresas.precio_oferta FROM ofertasEmpresas, empresas WHERE ofertasEmpresas.idE=empresas.idE", null);
+        Cursor cursor = bd.rawQuery("SELECT ofertasEmpresas.idF, ofertasEmpresas.nombre_oferta, empresas.nombre, ofertasEmpresas.maximo_clientes, ofertasEmpresas.precio_oferta, ofertasEmpresas.fecha_inicio, ofertasEmpresas.fecha_fin FROM ofertasEmpresas, empresas WHERE ofertasEmpresas.idE=empresas.idE", null);
 
         if (cursor.moveToFirst()) {
             do {
@@ -84,7 +84,9 @@ public class OfertasFragment extends Fragment {
                 String empresa = cursor.getString(2);
                 String cantidadOfertaPorUsuario = cursor.getString(3);
                 String precio = cursor.getString(4);
-                elements.add(new ListaElementosClientes(id, nombreOferta, empresa, cantidadOfertaPorUsuario, precio));
+                String fechaI = cursor.getString(5);
+                String fechaF = cursor.getString(6);
+                elements.add(new ListaElementosClientes(id, nombreOferta, empresa, cantidadOfertaPorUsuario, precio, fechaI, fechaF));
             } while (cursor.moveToNext());
         }
 

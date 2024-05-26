@@ -27,7 +27,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<ListaElementosClientes> mData;
     private LayoutInflater mInflater;
     private Context mContext; // Mantener una referencia al contexto
-    private String userEmail, idC;
+    private String userEmail, idC, idE, idVO;
 
 
     // Constructor que acepta la lista de elementos, el contexto y el correo electrónico del usuario
@@ -64,7 +64,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView id, nombreOferta, empresa, cantidadOfertaPorUsuario, precio;
+        TextView id, nombreOferta, empresa, cantidadOfertaPorUsuario, precio, fechaI, fechaF;
         EditText cantidadIngresada;
         Button botonComprar;
 
@@ -77,6 +77,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             empresa = itemView.findViewById(R.id.empresa);
             cantidadOfertaPorUsuario = itemView.findViewById(R.id.cantidadOfertaPorUsuario);
             precio = itemView.findViewById(R.id.precio);
+            fechaI= itemView.findViewById(R.id.fechaI);
+            fechaF= itemView.findViewById(R.id.fechaF);
             botonComprar = itemView.findViewById(R.id.botonComprar);
 
             // Configurar el listener para el botón de compra
@@ -108,8 +110,31 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             empresa.setText(item.getEmpresa());
             cantidadOfertaPorUsuario.setText(item.getCantidadOfertaPorUsuario());
             precio.setText(item.getPrecio());
+            fechaI.setText(item.getFechaI());
+            fechaF.setText(item.getFechaF());
 
         }
+    }
+
+    private String generateUniqueVentaOfertaId() {
+        AdminSqLite admin = new AdminSqLite(mContext, "localMarket", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        // Realizar la consulta en la base de datos
+        Cursor fila = bd.rawQuery("SELECT COUNT(*) FROM ventasOferta", null);
+        String id;
+        if (fila.moveToFirst()) {
+            // Obtener el número de registros y añadir 1 para el nuevo ID
+            int count = fila.getInt(0) + 1;
+            // Formatear el ID con el prefijo "C" y 5 dígitos
+            id = String.format("VO%05d", count);
+        } else {
+            // Si no hay registros, el ID inicial será "C00001"
+            id = "VO00001";
+        }
+        fila.close();
+        bd.close();
+        return id;
     }
 
     // Método para registrar la oferta en la base de datos de clientes
@@ -124,6 +149,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         Cursor cursor_fecha = bd.rawQuery("SELECT fecha_inicio, fecha_fin, total_oferta, maximo_clientes FROM ofertasEmpresas WHERE idF='" + oferta.getID() + "'", null);
         Cursor maximo = bd.rawQuery("SELECT cantidad_maxima FROM ofertaCliente WHERE idC='" + idC + "' and idF='" + oferta.getID() + "'", null);
+        Cursor IDE = bd.rawQuery("SELECT idE FROM empresas WHERE nombre='" + oferta.getEmpresa() + "'", null);
 
         if (!cursor_fecha.moveToFirst()) {
             Toast.makeText(mContext, "Error al obtener la oferta", Toast.LENGTH_SHORT).show();
@@ -176,6 +202,37 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             if (cantidad_maxima < maximo_clientes) {
                 int total = cantidad_maxima + cantidadSolicitada;
                 if (total <= maximo_clientes) {
+
+                    if (IDE.moveToFirst()) {
+                        idE = IDE.getString(0);
+                        idVO = generateUniqueVentaOfertaId();
+                        Cursor ventaOferta = bd.rawQuery("SELECT totalO FROM ventasOferta WHERE idF='" + oferta.getID() + "'", null);
+                        if (ventaOferta.moveToFirst()) {
+                            float totalo = ventaOferta.getFloat(0);
+                            float totalo1= totalo + cantidadSolicitada;
+
+                            ContentValues valores5 = new ContentValues();
+                            valores5.put("totalO", totalo1);
+
+                            int rowsUpdated = bd.update("ventasOferta", valores5, "idF=?", new String[]{oferta.getID()});
+                            if (rowsUpdated > 0) {
+                                Toast.makeText(mContext, "Compra realizada con éxito", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(mContext, "Error al actualizar la oferta", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }else{
+                            ContentValues registro5 = new ContentValues();
+                            registro5.put("idVO", idVO);
+                            registro5.put("idF", oferta.getID());
+                            registro5.put("idC", idC);
+                            registro5.put("idE", idE);
+                            registro5.put("totalO", total);
+
+                            bd.insert("ventasOferta", null, registro5);
+                        }
+                    }
+
                     ContentValues valores = new ContentValues();
                     valores.put("cantidad_maxima", total);
 
@@ -205,13 +262,36 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             }
 
         } else {
+            if (IDE.moveToFirst()) {
+                idE = IDE.getString(0);
+                idVO = generateUniqueVentaOfertaId();
+                ContentValues registro5 = new ContentValues();
+                registro5.put("idVO", idVO);
+                registro5.put("idF", oferta.getID());
+                registro5.put("idC", idC);
+                registro5.put("idE", idE);
+                registro5.put("totalO", cantidadSolicitada);
+
+                bd.insert("ventasOferta", null, registro5);
+            }
+
             ContentValues registro = new ContentValues();
             registro.put("idC", idC);
             registro.put("idF", oferta.getID());
             registro.put("cantidad_maxima", cantidadSolicitada);
 
             bd.insert("ofertaCliente", null, registro);
-            Toast.makeText(mContext, "Compra realizada con éxito", Toast.LENGTH_SHORT).show();
+
+            int nuevoTotalOferta = total_oferta - cantidadSolicitada;
+            ContentValues valores1 = new ContentValues();
+            valores1.put("total_oferta", nuevoTotalOferta);
+
+            int rowsUpdated1 = bd.update("ofertasEmpresas", valores1, "idF=?", new String[]{oferta.getID()});
+            if (rowsUpdated1 > 0) {
+                Toast.makeText(mContext, "Compra realizada con éxito", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(mContext, "Error al actualizar la oferta", Toast.LENGTH_SHORT).show();
+            }
 
         }
     }

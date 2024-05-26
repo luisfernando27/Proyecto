@@ -6,13 +6,17 @@ public class ListaElementosClientes {
     private String empresa;
     private String cantidadOfertaPorUsuario;
     private String precio;
+    private String fechaI;
+    private String fechaF;
 
-    public ListaElementosClientes(String id,String nombreOferta, String empresa, String cantidadOfertaPorUsuario, String precio) {
+    public ListaElementosClientes(String id,String nombreOferta, String empresa, String cantidadOfertaPorUsuario, String precio, String fechaI, String fechaF) {
         this.id = id;
         this.nombreOferta = nombreOferta;
         this.empresa = empresa;
         this.cantidadOfertaPorUsuario = cantidadOfertaPorUsuario;
         this.precio = precio;
+        this.fechaI = fechaI;
+        this.fechaF = fechaF;
     }
 
     public String getID() {
@@ -32,5 +36,11 @@ public class ListaElementosClientes {
 
     public String getPrecio() {
         return precio;
+    }
+
+    public String getFechaI() { return fechaI; }
+
+    public String getFechaF() {
+        return fechaF;
     }
 }
