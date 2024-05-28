@@ -6,23 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- AppBarLayout contiene el Toolbar y puede tener otros elementos -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <!-- Toolbar -->
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#D33C3C"
-            app:title="Registro Productos"
-            app:titleTextColor="@android:color/white">
-
-        </com.google.android.material.appbar.MaterialToolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
 
     <!-- Contenido principal de la actividad -->
     <androidx.core.widget.NestedScrollView
@@ -30,8 +14,6 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- Contenido principal -->
-        <!-- Tu diseño de formulario aquí -->
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
@@ -47,7 +29,6 @@
                 android:id="@+id/LblidProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/buttonAtras"
                 android:text="@string/idProducto"
                 android:textColor="#2B2B2B"
                 android:textSize="30sp"
