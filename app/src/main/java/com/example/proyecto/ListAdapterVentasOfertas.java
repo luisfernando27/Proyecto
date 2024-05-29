@@ -53,7 +53,7 @@ public class ListAdapterVentasOfertas extends RecyclerView.Adapter<ListAdapterVe
 
         }
         void bindData(final ListaElementosVentasOfertas item) {
-            idvo.setText("ID Oferta: " + item.getIdVo());
+            idvo.setText("ID Venta: " + item.getIdVo());
             nombreOferta.setText("Nombre: " + item.getNombreOferta());
             totalO.setText("Total Vendidos: " + item.getTotalO());
             precio.setText("Precio: $" + item.getPrecio());

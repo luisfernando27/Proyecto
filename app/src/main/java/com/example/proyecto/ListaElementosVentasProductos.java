@@ -1,47 +1,41 @@
 package com.example.proyecto;
 
 public class ListaElementosVentasProductos {
-    public String nombreProducto;
-    public String usuario;
-    public String cantidadUsuario;
-    public String total;
+    public String idvp;
 
-    public ListaElementosVentasProductos(String nombreProducto, String usuario, String cantidadUsuario, String total) {
+    public String nombreProducto;
+    public String totalC;
+
+    public String cantidad;
+
+    public String precio;
+
+    public ListaElementosVentasProductos(String idvp, String nombreProducto, String totalC, String cantidad, String precio) {
+        this.idvp = idvp;
         this.nombreProducto = nombreProducto;
-        this.usuario = usuario;
-        this.cantidadUsuario = cantidadUsuario;
-        this.total = total;
+        this.totalC = totalC;
+        this.cantidad = cantidad;
+        this.precio = precio;
     }
 
+    public String getIDVP() {
+        return idvp;
+    }
     public String getNombreProducto() {
         return nombreProducto;
     }
 
-    public void setNombreProducto(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
+    public String getTotalC() {
+        return totalC;
     }
 
-    public String getUsuario() {
-        return usuario;
+
+    public String getCantidad() {
+        return cantidad;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public String getPrecio() {
+        return precio;
     }
 
-    public String getCantidadUsuario() {
-        return cantidadUsuario;
-    }
-
-    public void setCantidadUsuario(String cantidadUsuario) {
-        this.cantidadUsuario = cantidadUsuario;
-    }
-
-    public String getTotal() {
-        return total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total;
-    }
 }

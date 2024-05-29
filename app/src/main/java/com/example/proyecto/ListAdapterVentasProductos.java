@@ -39,21 +39,35 @@ public class ListAdapterVentasProductos extends RecyclerView.Adapter<ListAdapter
     public void setItems(List<ListaElementosVentasProductos> items) { mData = items; }
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView iconImage;
-        TextView nombreProducto, usuario, cantidadUsuaio, total;
+        TextView idvp, nombreProducto, totalC, cantidad, precio, total_venta;
         ViewHolder(View itemView) {
             super(itemView);
+            idvp = itemView.findViewById(R.id.idProd);
             nombreProducto = itemView.findViewById(R.id.nombreProducto);
-            usuario = itemView.findViewById(R.id.usuario);
-            cantidadUsuaio = itemView.findViewById(R.id.cantidadProdPorUsuario);
-            total = itemView.findViewById(R.id.total);
+            totalC = itemView.findViewById(R.id.totalPro);
+            cantidad = itemView.findViewById(R.id.cant);
+            precio = itemView.findViewById(R.id.precioProd);
+            total_venta = itemView.findViewById(R.id.total_venta);
+
 
 
         }
         void bindData(final ListaElementosVentasProductos item) {
-            nombreProducto.setText(item.getNombreProducto());
-            usuario.setText(item.getUsuario());
-            cantidadUsuaio.setText(item.getCantidadUsuario());
-            total.setText(item.getTotal());
+            idvp.setText("ID Venta: " + item.getIDVP());
+            nombreProducto.setText("Nombre producto: " + item.getNombreProducto());
+            totalC.setText("Total vendido: " + item.getTotalC());
+            cantidad.setText("Restantes: " + item.getCantidad());
+            precio.setText("Precio: $" + item.getPrecio());
+
+            // Calcular el total multiplicando la cantidad por el precio
+            try {
+                int cantidadValue = Integer.parseInt(item.getTotalC());
+                double precioValue = Double.parseDouble(item.getPrecio());
+                double totalValue = cantidadValue * precioValue;
+                total_venta.setText("Total venta: $" + String.format("%.2f", totalValue));
+            } catch (NumberFormatException e) {
+                total_venta.setText("Total venta: N/A");
+            }
 
         }
     }

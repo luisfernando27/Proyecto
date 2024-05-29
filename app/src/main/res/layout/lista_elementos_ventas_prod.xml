@@ -32,31 +32,47 @@
                 android:layout_marginLeft="4dp">
 
                 <TextView
+                    android:id="@+id/idProd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID del producto"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/nombreProducto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nombre del producto"
                     android:textSize="18sp"
                     android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/usuario"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Usuario"
-                    android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/cantidadProdPorUsuario"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cantidad de productos por usuario"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/total"
+                    android:id="@+id/totalPro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/cant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cantidad del producto"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/precioProd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="precio"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/total_venta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total venta"
                     android:textSize="16sp"/>
 
 

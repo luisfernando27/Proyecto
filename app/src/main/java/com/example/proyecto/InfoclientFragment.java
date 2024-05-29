@@ -68,13 +68,13 @@ public class InfoclientFragment extends Fragment {
             String ciudad = cursor.getString(6);
 
             // Mostrar los datos en los TextViews
-            nombreCliente.setText(nombre);
-            edadCliente.setText(edad > 0 ? String.valueOf(edad) : "");
-            sexoCliente.setText(sexo != null ? sexo : "");
-            correoCliente.setText(correo);
-            contraseñaCliente.setText(contraseña);
-            direccionCliente.setText(direccion);
-            ciudadCliente.setText(ciudad);
+            nombreCliente.setText("Nombre: " + nombre);
+            edadCliente.setText("Edad: " + edad);
+            sexoCliente.setText("Sexo: " + sexo);
+            correoCliente.setText("Correo: " + correo);
+            contraseñaCliente.setText("Contraseña: " + contraseña);
+            direccionCliente.setText("Dirección: " + direccion);
+            ciudadCliente.setText("Ciudad: " + ciudad);
         }
 
         cursor.close();

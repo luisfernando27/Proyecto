@@ -23,6 +23,8 @@ import java.util.List;
 public class VentasproductosFragment extends Fragment {
     List<ListaElementosVentasProductos> elements;
 
+    private ListAdapterVentasProductos listAdapter;
+
     private String userEmail;
 
     public VentasproductosFragment() {}
@@ -42,24 +44,56 @@ public class VentasproductosFragment extends Fragment {
         // Inflar el diseño del fragmento
         View view = inflater.inflate(R.layout.fragment_ventasproductos, container, false);
 
+        // Get user email from arguments
+        Bundle args = getArguments();
+        if (args != null) {
+            userEmail = args.getString("CORREO");
+        }
 
         // Inicializar y configurar el RecyclerView
-        init(view);
-
-        return view;
-    }
-
-    private void init(View view) {
-        elements = new ArrayList<>();
-
-        elements.add(new ListaElementosVentasProductos("Producto 1", "0001", "5", "500"));
-        elements.add(new ListaElementosVentasProductos("Producto 2", "0002", "5", "500"));
-
-        ListAdapterVentasProductos listAdapterVentasProductos = new ListAdapterVentasProductos(elements, getContext());
+        // Initialize RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recyclerListaVentasProd);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(listAdapterVentasProductos);
 
+        // Initialize List and Adapter
+        elements = new ArrayList<>();
+        listAdapter = new ListAdapterVentasProductos(elements, getContext());
+        recyclerView.setAdapter(listAdapter);
+
+        // Load data from database
+        loadDataFromDatabase();
+
+        return view;
+    }
+    private void loadDataFromDatabase() {
+        AdminSqLite admin = new AdminSqLite(getContext(), "localMarket", null, 1);
+        SQLiteDatabase bd = admin.getWritableDatabase();
+
+        // Retrieve the ID of the company associated with the user email
+        Cursor cursorID = bd.rawQuery("SELECT idE FROM empresas WHERE correo='" + userEmail + "'", null);
+
+        if (cursorID.moveToFirst()) {
+            String idE = cursorID.getString(0);
+
+            // Query to select products from the company with idE
+            Cursor cursor = bd.rawQuery("SELECT ventasProducto.idVP, productos.nombre_producto, ventasProducto.totalC, productos.cantidad, productos.precio FROM ventasProducto, productos WHERE ventasProducto.idP=productos.idP AND ventasProducto.idE=productos.idE AND ventasProducto.idE='" + idE + "'", null);
+
+            if (cursor.moveToFirst()) {
+                do {
+                    String idVP = cursor.getString(0);
+                    String nombreProducto = cursor.getString(1);
+                    String totalC = cursor.getString(2);
+                    String cantidad = cursor.getString(3);
+                    String precio = cursor.getString(4);
+                    elements.add(new ListaElementosVentasProductos(idVP, nombreProducto, totalC, cantidad, precio));
+                } while (cursor.moveToNext());
+            }
+
+            cursor.close();
+        }
+
+        cursorID.close();
+        bd.close();
     }
 }
