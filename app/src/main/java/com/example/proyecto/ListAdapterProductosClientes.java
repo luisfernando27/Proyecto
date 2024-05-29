@@ -88,10 +88,10 @@ public class ListAdapterProductosClientes extends RecyclerView.Adapter<ListAdapt
 
         void bindData(final ListaElementosProductosClientes item) {
             idP.setText(item.getID());
-            nombreProducto.setText(item.getNombreProducto());
-            empresa.setText(item.getEmpresa());
-            cantidad.setText(item.getCantidad());
-            precio.setText(item.getPrecio());
+            nombreProducto.setText("Nombre del producto: " + item.getNombreProducto());
+            empresa.setText("Empresa: " + item.getEmpresa());
+            cantidad.setText("Cantidad: " + item.getCantidad());
+            precio.setText("Precio: $" + item.getPrecio());
         }
     }
 

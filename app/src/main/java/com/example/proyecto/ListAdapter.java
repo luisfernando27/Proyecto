@@ -105,12 +105,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         void bindData(final ListaElementosClientes item) {
             // Asignar los datos del elemento actual a las vistas
             id.setText(item.getID());
-            nombreOferta.setText(item.getNombreOferta());
-            empresa.setText(item.getEmpresa());
-            cantidadOfertaPorUsuario.setText(item.getCantidadOfertaPorUsuario());
-            precio.setText(item.getPrecio());
-            fechaI.setText(item.getFechaI());
-            fechaF.setText(item.getFechaF());
+            nombreOferta.setText("Oferta: " + item.getNombreOferta());
+            empresa.setText("Empresa: " + item.getEmpresa());
+            cantidadOfertaPorUsuario.setText("Cantidad por usuario: " + item.getCantidadOfertaPorUsuario());
+            precio.setText("Precio: $" +item.getPrecio());
+            fechaI.setText("Inicio: " +item.getFechaI());
+            fechaF.setText("Fin: " + item.getFechaF());
 
         }
     }
