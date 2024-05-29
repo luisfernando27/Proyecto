@@ -27,6 +27,14 @@ public class CarritoFragment extends Fragment {
 
     public CarritoFragment() {}
 
+    public static CarritoFragment newInstance(String userEmail) {
+        CarritoFragment fragment = new CarritoFragment();
+        Bundle args = new Bundle();
+        args.putString("CORREO", userEmail);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,

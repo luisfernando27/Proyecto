@@ -11,6 +11,14 @@ import android.view.ViewGroup;
 public class InfoclientFragment extends Fragment {
 
 
+    public static InfoclientFragment newInstance(String userEmail) {
+        InfoclientFragment fragment = new InfoclientFragment();
+        Bundle args = new Bundle();
+        args.putString("CORREO", userEmail);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

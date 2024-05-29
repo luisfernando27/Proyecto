@@ -46,17 +46,21 @@ public class MenuClientes extends AppCompatActivity implements NavigationView.On
             OfertasFragment ofertasFragment = OfertasFragment.newInstance(userEmail);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, ofertasFragment).commit();
         } else if (itemId == R.id.nav_productos) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProductosFragment()).commit();
+            ProductosFragment productosFragment = ProductosFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, productosFragment).commit();
         } else if (itemId == R.id.nav_carrito) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CarritoFragment()).commit();
+            CarritoFragment carritoFragment = CarritoFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, carritoFragment).commit();
         } else if (itemId == R.id.nav_info_us) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoclientFragment()).commit();
+            InfoclientFragment infoclientFragment = InfoclientFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, infoclientFragment).commit();
         } else if (itemId == R.id.nav_logout) {
             logout();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     private void logout() {
         // Mostrar mensaje de cierre de sesión

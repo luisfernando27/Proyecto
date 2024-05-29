@@ -60,7 +60,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public void setItems(List<ListaElementosClientes> items) {
         // Actualizar la lista de elementos y notificar al adaptador
         mData = items;
-        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -206,7 +205,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                     if (IDE.moveToFirst()) {
                         idE = IDE.getString(0);
                         idVO = generateUniqueVentaOfertaId();
-                        Cursor ventaOferta = bd.rawQuery("SELECT totalO FROM ventasOferta WHERE idF='" + oferta.getID() + "'", null);
+                        Cursor ventaOferta = bd.rawQuery("SELECT totalO FROM ventasOferta WHERE idF='" + oferta.getID() + "' and idC='" + idC + "'" , null);
                         if (ventaOferta.moveToFirst()) {
                             float totalo = ventaOferta.getFloat(0);
                             float totalo1= totalo + cantidadSolicitada;
@@ -214,7 +213,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                             ContentValues valores5 = new ContentValues();
                             valores5.put("totalO", totalo1);
 
-                            int rowsUpdated = bd.update("ventasOferta", valores5, "idF=?", new String[]{oferta.getID()});
+                            int rowsUpdated = bd.update("ventasOferta", valores5, "idF=? and idC=?", new String[]{oferta.getID(), idC});
                             if (rowsUpdated > 0) {
                                 Toast.makeText(mContext, "Compra realizada con éxito", Toast.LENGTH_SHORT).show();
                             } else {
@@ -227,7 +226,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                             registro5.put("idF", oferta.getID());
                             registro5.put("idC", idC);
                             registro5.put("idE", idE);
-                            registro5.put("totalO", total);
+                            registro5.put("totalO", cantidadSolicitada);
 
                             bd.insert("ventasOferta", null, registro5);
                         }
@@ -238,7 +237,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
                     int rowsUpdated = bd.update("ofertaCliente", valores, "idC=? and idF=?", new String[]{idC, oferta.getID()});
                     if (rowsUpdated > 0) {
-                        Toast.makeText(mContext, "Compra realizada con éxito", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(mContext, "Error al actualizar la oferta", Toast.LENGTH_SHORT).show();
                     }
@@ -249,7 +247,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
                     int rowsUpdated1 = bd.update("ofertasEmpresas", valores1, "idF=?", new String[]{oferta.getID()});
                     if (rowsUpdated1 > 0) {
-                        Toast.makeText(mContext, "Compra realizada con éxito", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(mContext, "Error al actualizar la oferta", Toast.LENGTH_SHORT).show();
                     }
