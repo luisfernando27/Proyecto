@@ -13,13 +13,15 @@ import java.util.List;
 public class ListAdapterCarrito extends RecyclerView.Adapter<ListAdapterCarrito.ViewHolder>{
     private List<ListaElementosCarrito> mData;
     private LayoutInflater mInflater;
-    private Context context;
+    private Context mContext;
 
-    public ListAdapterCarrito (List<ListaElementosCarrito> itemList, Context context) {
+    private String userEmail;
 
+    public ListAdapterCarrito (List<ListaElementosCarrito> itemList, Context context, String userEmail) {
         this.mInflater = LayoutInflater.from(context);
-        this.context = context;
+        this.mContext = context;
         this.mData = itemList;
+        this.userEmail = userEmail;
     }
 
     @Override
@@ -38,20 +40,20 @@ public class ListAdapterCarrito extends RecyclerView.Adapter<ListAdapterCarrito.
 
     public void setItems(List<ListaElementosCarrito> items) { mData = items; }
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView iconImage;
-        TextView nombreVenta, empresa, cantidadUsuaio, total;
+        TextView nombreProducto, cantidad, precio, total;
         ViewHolder(View itemView) {
             super(itemView);
-            nombreVenta= itemView.findViewById(R.id.nombreVenta);
-            empresa = itemView.findViewById(R.id.empresa);
-            cantidadUsuaio = itemView.findViewById(R.id.cantidadProdPorUsuario);
+            nombreProducto= itemView.findViewById(R.id.nombreProducto);
+            cantidad = itemView.findViewById(R.id.cantidad);
+            precio = itemView.findViewById(R.id.precio);
             total = itemView.findViewById(R.id.total);
+
         }
         void bindData(final ListaElementosCarrito item) {
-            nombreVenta.setText(item.getNombreVenta());
-            empresa.setText(item.getEmpresa());
-            cantidadUsuaio.setText(item.getCantidad());
-            total.setText(item.getTotal());
+            nombreProducto.setText(item.getNombreProducto());
+            cantidad.setText(item.getCantidad());
+            precio.setText(item.getPrecio());
+
 
         }
     }
