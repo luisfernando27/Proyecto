@@ -52,15 +52,20 @@ public class MenuEmpresas extends AppCompatActivity implements NavigationView.On
             RegistroproductoFragment registroproductoFragment = RegistroproductoFragment.newInstance(userEmail);
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, registroproductoFragment).commit();
         } else if (itemId == R.id.nav_ofertas_registradas) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VerofertaFragment()).commit();
+            VerofertaFragment verofertaFragment = VerofertaFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, verofertaFragment).commit();
         } else if (itemId == R.id.nav_productos_registradas) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VerproductoFragment()).commit();
+            VerproductoFragment verproductoFragment = VerproductoFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, verproductoFragment).commit();
         } else if (itemId == R.id.nav_venta_ofertas) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VentasofertasFragment()).commit();
+            VentasofertasFragment ventasofertasFragment = VentasofertasFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, ventasofertasFragment).commit();
         } else if (itemId == R.id.nav_venta_productos) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VentasproductosFragment()).commit();
+            VentasproductosFragment ventasproductosFragment = VentasproductosFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, ventasproductosFragment).commit();
         } else if (itemId == R.id.nav_info_us) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InfoclientFragment()).commit();
+            InfoempresaFragment infoempresaFragment = InfoempresaFragment.newInstance(userEmail);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, infoempresaFragment).commit();
         } else if (itemId == R.id.nav_logout) {
             logout();
         }

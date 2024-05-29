@@ -6,9 +6,48 @@
     tools:context=".InfoempresaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvNombreEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre de la Empresa"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvCorreoEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvDireccionEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirección"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvCiudadEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ciudad"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvContrasenaEmpresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contraseña"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -23,7 +23,17 @@ import java.util.List;
 public class VentasproductosFragment extends Fragment {
     List<ListaElementosVentasProductos> elements;
 
+    private String userEmail;
+
     public VentasproductosFragment() {}
+
+    public static VentasproductosFragment newInstance(String userEmail) {
+        VentasproductosFragment fragment = new VentasproductosFragment();
+        Bundle args = new Bundle();
+        args.putString("CORREO", userEmail);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override

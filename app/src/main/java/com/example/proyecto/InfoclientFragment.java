@@ -55,8 +55,8 @@ public class InfoclientFragment extends Fragment {
         AdminSqLite admin = new AdminSqLite(getContext(), "localMarket", null, 1);
         SQLiteDatabase bd = admin.getWritableDatabase();
 
-        // Consulta SQL para obtener los datos del cliente
-        Cursor cursor = bd.rawQuery("SELECT nombre, edad, sexo, correo, contra, direccion, ciudad FROM clientes WHERE correo = ?", new String[]{userEmail});
+        // Consulta SQL para obtener los datos del cliente o empresa
+        Cursor cursor = bd.rawQuery("SELECT nombre, edad, sexo, correo, contra, direccion, ciudad FROM clientes WHERE correo = ? UNION SELECT nombre, NULL, NULL, correo, contra, direccion, ciudad FROM empresas WHERE correo = ?", new String[]{userEmail, userEmail});
 
         if (cursor.moveToFirst()) {
             String nombre = cursor.getString(0);
@@ -69,8 +69,8 @@ public class InfoclientFragment extends Fragment {
 
             // Mostrar los datos en los TextViews
             nombreCliente.setText(nombre);
-            edadCliente.setText(String.valueOf(edad));
-            sexoCliente.setText(sexo);
+            edadCliente.setText(edad > 0 ? String.valueOf(edad) : "");
+            sexoCliente.setText(sexo != null ? sexo : "");
             correoCliente.setText(correo);
             contraseñaCliente.setText(contraseña);
             direccionCliente.setText(direccion);

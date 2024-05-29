@@ -33,8 +33,7 @@
                 <TextView
                     android:id="@+id/idOferta"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"/>
+                    android:layout_height="wrap_content"/>
 
                 <TextView
                     android:id="@+id/nombreOferta"
@@ -44,14 +43,14 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/cantidadOfertaPorUsuario"
+                    android:id="@+id/cantidadmaxima"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cantidad maxima de oferta"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/cantidadTotalOfertas"
+                    android:id="@+id/cantidadtotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cantidad total de ofertas"

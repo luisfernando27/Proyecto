@@ -32,6 +32,14 @@
                 android:layout_marginLeft="4dp">
 
                 <TextView
+                    android:id="@+id/idProducto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID producto"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/nombreProducto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -40,10 +48,10 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/codigoProducto"
+                    android:id="@+id/cantidad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Código del producto"
+                    android:text="Cantidad del producto"
                     android:textSize="16sp" />
 
                 <TextView
@@ -51,6 +59,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Precio"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/totalV1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total"
                     android:textSize="16sp" />
 
 

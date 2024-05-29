@@ -32,6 +32,14 @@
                 android:layout_marginLeft="4dp">
 
                 <TextView
+                    android:id="@+id/idOferta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID de la oferta"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/nombreOferta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -40,21 +48,28 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/usuario"
+                    android:id="@+id/totalO"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Usuario"
+                    android:text="Total ofertas"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/cantidadOfertaPorUsuario"
+                    android:id="@+id/precio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cantidad de oferta por usuario"
+                    android:text="Precio"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/total"
+                    android:id="@+id/restantes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Restantes"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/totalV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total"

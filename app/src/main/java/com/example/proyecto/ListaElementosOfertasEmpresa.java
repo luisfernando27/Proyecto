@@ -1,67 +1,55 @@
 package com.example.proyecto;
 
 public class ListaElementosOfertasEmpresa {
+    public String idO;
+
     public String nombreOferta;
-    public String cantidadMaxima;
+    public String precioOferta;
     public String totalOfertas;
-    public String precio;
+
+    public String maximaCantidad;
     public String fechaInicio;
     public String fechaFin;
 
-    public ListaElementosOfertasEmpresa(String nombreOferta, String cantidadMaxima, String totalOfertas, String precio, String fechaInicio, String fechaFin) {
+    public ListaElementosOfertasEmpresa(String idO, String nombreOferta, String precioOferta, String totalOfertas, String maximaCantidad, String fechaInicio, String fechaFin) {
+        this.idO = idO;
         this.nombreOferta = nombreOferta;
-        this.cantidadMaxima = cantidadMaxima;
+        this.precioOferta = precioOferta;
         this.totalOfertas = totalOfertas;
-        this.precio = precio;
+        this.maximaCantidad = maximaCantidad;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
     }
 
+    public String getIDO() {
+        return idO;
+    }
     public String getNombreOferta() {
         return nombreOferta;
     }
 
-    public void setNombreOferta(String nombreOferta) {
-        this.nombreOferta = nombreOferta;
+    public String getPrecioOferta() {
+        return precioOferta;
     }
 
-    public String getCantidadMaxima() {
-        return cantidadMaxima;
-    }
-
-    public void setCantidadMaxima(String cantidadMaxima) {
-        this.cantidadMaxima = cantidadMaxima;
-    }
 
     public String getTotalOfertas() {
         return totalOfertas;
     }
 
-    public void setTotalOfertas(String totalOfertas) {
-        this.totalOfertas = totalOfertas;
+
+    public String getMaximaCantidad() {
+        return maximaCantidad;
     }
 
-    public String getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(String precio) {
-        this.precio = precio;
-    }
 
     public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
 
     public String getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(String fechaFin) {
-        this.fechaFin = fechaFin;
-    }
 }
