@@ -26,7 +26,7 @@ public class ListAdapterOfertasEmpresa extends RecyclerView.Adapter<ListAdapterO
 
     @Override
     public ListAdapterOfertasEmpresa.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.lista_ofertas_registradas, null);
+        View view = mInflater.inflate(R.layout.lista_elementos_ver_ofertas, null);
         return new ListAdapterOfertasEmpresa.ViewHolder(view);
     }
 
@@ -36,23 +36,24 @@ public class ListAdapterOfertasEmpresa extends RecyclerView.Adapter<ListAdapterO
     }
     public void setItems(List<ListaElementosOfertasEmpresa> items) { mData = items; }
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView iconImage;
-        TextView nombreOferta, descripcion, precio, totalOferta;
+        TextView nombreOferta, cantidadMaxima, totalOfertas, precio, fechaInicio, fechaFin;
         ViewHolder(View itemView) {
             super(itemView);
-            iconImage = itemView.findViewById(R.id.imagenOfertaUs);
             nombreOferta = itemView.findViewById(R.id.nombreOferta);
-            descripcion = itemView.findViewById(R.id.descripcionOferta);
-            precio = itemView.findViewById(R.id.lblPrecio);
-            totalOferta = itemView.findViewById(R.id.totalOfertas);
+            cantidadMaxima = itemView.findViewById(R.id.cantidadOfertaPorUsuario);
+            totalOfertas = itemView.findViewById(R.id.cantidadTotalOfertas);
+            precio = itemView.findViewById(R.id.precio);
+            fechaInicio = itemView.findViewById(R.id.fechaI);
+            fechaFin = itemView.findViewById(R.id.fechaF);
 
         }
         void bindData(final ListaElementosOfertasEmpresa item) {
             nombreOferta.setText(item.getNombreOferta());
-            descripcion.setText(item.getDescripcionOferta());
-            precio.setText(item.getPrecioOferta());
-            totalOferta.setText(item.getNumTotalOferta());
-
+            cantidadMaxima.setText(item.getCantidadMaxima());
+            totalOfertas.setText(item.getTotalOfertas());
+            precio.setText(item.getPrecio());
+            fechaInicio.setText(item.getFechaInicio());
+            fechaFin.setText(item.getFechaFin());
         }
     }
 }

@@ -46,8 +46,6 @@ public class ListAdapterCarrito extends RecyclerView.Adapter<ListAdapterCarrito.
             empresa = itemView.findViewById(R.id.empresa);
             cantidadUsuaio = itemView.findViewById(R.id.cantidadProdPorUsuario);
             total = itemView.findViewById(R.id.total);
-
-
         }
         void bindData(final ListaElementosCarrito item) {
             nombreVenta.setText(item.getNombreVenta());

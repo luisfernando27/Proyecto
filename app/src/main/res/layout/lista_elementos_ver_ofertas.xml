@@ -47,7 +47,14 @@
                     android:id="@+id/cantidadOfertaPorUsuario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cantidad de oferta por usuario"
+                    android:text="Cantidad maxima de oferta"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/cantidadTotalOfertas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cantidad total de ofertas"
                     android:textSize="14sp" />
 
                 <TextView

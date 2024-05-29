@@ -2,15 +2,19 @@ package com.example.proyecto;
 
 public class ListaElementosOfertasEmpresa {
     public String nombreOferta;
-    public String descripcionOferta;
-    public String precioOferta;
-    public String numTotalOferta;
+    public String cantidadMaxima;
+    public String totalOfertas;
+    public String precio;
+    public String fechaInicio;
+    public String fechaFin;
 
-    public ListaElementosOfertasEmpresa(String nombreOferta, String descripcionOferta, String precioOferta, String numTotalOferta) {
+    public ListaElementosOfertasEmpresa(String nombreOferta, String cantidadMaxima, String totalOfertas, String precio, String fechaInicio, String fechaFin) {
         this.nombreOferta = nombreOferta;
-        this.descripcionOferta = descripcionOferta;
-        this.precioOferta = precioOferta;
-        this.numTotalOferta = numTotalOferta;
+        this.cantidadMaxima = cantidadMaxima;
+        this.totalOfertas = totalOfertas;
+        this.precio = precio;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
     }
 
     public String getNombreOferta() {
@@ -21,27 +25,43 @@ public class ListaElementosOfertasEmpresa {
         this.nombreOferta = nombreOferta;
     }
 
-    public String getDescripcionOferta() {
-        return descripcionOferta;
+    public String getCantidadMaxima() {
+        return cantidadMaxima;
     }
 
-    public void setDescripcionOferta(String descripcionOferta) {
-        this.descripcionOferta = descripcionOferta;
+    public void setCantidadMaxima(String cantidadMaxima) {
+        this.cantidadMaxima = cantidadMaxima;
     }
 
-    public String getPrecioOferta() {
-        return precioOferta;
+    public String getTotalOfertas() {
+        return totalOfertas;
     }
 
-    public void setPrecioOferta(String precioOferta) {
-        this.precioOferta = precioOferta;
+    public void setTotalOfertas(String totalOfertas) {
+        this.totalOfertas = totalOfertas;
     }
 
-    public String getNumTotalOferta() {
-        return numTotalOferta;
+    public String getPrecio() {
+        return precio;
     }
 
-    public void setNumTotalOferta(String numTotalOferta) {
-        this.numTotalOferta = numTotalOferta;
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
     }
 }
